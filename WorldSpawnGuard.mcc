@@ -1,0 +1,19 @@
+# Create an ArmorStand at your worldspawn location:
+
+/summon ArmorStand ~ ~ ~ {NoGravity:true,Invisible:true,Invulnerable:true,Marker:true,CustomName:"WorldSpawnGuard"}
+
+# Put the following on a 'fill strip'
+# Indenting implies that the indented commands should be built on top of the parent (e.g. via comparator)
+
+fill strip:
+	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ testfor @a[r=30,m=0]
+	  fill ~1 ~ ~ ~3 ~ ~ redstone_block
+		  execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ title @a[r=30,m=0] title {text:"Entering World Spawn",color:dark_red,bold:false,underlined:false,italic:false,strikethrough:false,obfuscated:false} 
+	    execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ gamemode adventure @a[r=30,m=0]
+	  fill ~-1 ~ ~ ~-3 ~ ~ wool 5
+
+	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ testfor @a[rm=30,m=2]
+	  fill ~1 ~ ~ ~3 ~ ~ redstone_block
+		  execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ title @a[rm=30,m=2] title {text:"Leaving World Spawn",color:dark_green,bold:false,underlined:false,italic:false,strikethrough:false,obfuscated:false} 
+		  execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ gamemode survival @a[rm=30,m=2]
+	  fill ~-1 ~ ~ ~-3 ~ ~ wool 5
