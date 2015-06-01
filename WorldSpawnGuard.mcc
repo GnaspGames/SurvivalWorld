@@ -7,7 +7,7 @@
 fill strip:
 	# Survival Players within range
 	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[r=30,m=0] ~ ~ ~ title @p title {text:"Entering World Spawn",color:dark_red,bold:false,underlined:false,italic:false,strikethrough:false,obfuscated:false}
-	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[r=20,m=0] ~ ~ ~ gamemode adventure @p
+	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[r=30,m=0] ~ ~ ~ gamemode adventure @p
 	# Adventure Players outside range
 	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[rm=30,m=2] ~ ~ ~ title @p title {text:"Leaving World Spawn",color:dark_green,bold:false,underlined:false,italic:false,strikethrough:false,obfuscated:false} 
 	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[rm=30,m=2] ~ ~ ~ gamemode survival @p
