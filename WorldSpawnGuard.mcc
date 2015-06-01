@@ -1,9 +1,13 @@
-# Create an ArmorStand at your worldspawn location:
+# These commands create a soft of world spawn protection for a survival world. 
+# When survival players get within 30 blocks of worldspawn, an "Entering World Spawn" title 
+# is displayed to them and they are changed to the adventure gamemode.
+# When leaving the area, a "Leaving World Spawn" title is displayed
+# and they are changed back to survival gamemode.
 
+# First, create an ArmorStand at your worldspawn location:
 /summon ArmorStand ~ ~ ~ {NoGravity:true,Invisible:true,Invulnerable:true,Marker:true,CustomName:"WorldSpawnGuard"}
 
-# Put the following on a 'fill strip'
-
+# Then put the following on a 'fill strip' within your spawn chunks.
 fill strip:
 	# Survival Players within range
 	execute @e[type=ArmorStand,name=WorldSpawnGuard] ~ ~ ~ execute @a[r=30,m=0] ~ ~ ~ title @p title {text:"Entering World Spawn",color:dark_red,bold:false,underlined:false,italic:false,strikethrough:false,obfuscated:false}
